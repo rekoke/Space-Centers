@@ -2,15 +2,16 @@ import React from 'react';
 import { Query } from '@apollo/client/react/components';
 import { FIND_FLIGHTS } from '../GraphQL/Queries';
 import DeparturesList from './DeparturesList';
+import LoadingEllipsis from "./LoadingEllipsis";
 
 const DeparturesListQuery = ({from}) => (
     <Query query={FIND_FLIGHTS} variables={{from:from, page: 0}}>
         {({ data, fetchMore, loading }) =>
-        loading ? 'Loading...' : 
+        loading ? <LoadingEllipsis /> : 
         (
             <DeparturesList
-                departures={data.flights.nodes || []}
-                total={data.flights.pagination.total || 0}
+                departures={data?.flights.nodes || []}
+                total={data?.flights.pagination.total || 0}
                 onLoadMore={() =>
                     fetchMore({
                     variables: {

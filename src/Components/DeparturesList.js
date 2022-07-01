@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledDeparturesList } from "./styles/DeparturesList.styled";
 
 const handleScroll = ({ currentTarget }, onLoadMore) => {
     if( currentTarget.scrollTop + currentTarget.clientHeight >= currentTarget.scrollHeight){
@@ -6,24 +7,27 @@ const handleScroll = ({ currentTarget }, onLoadMore) => {
     }
 };
 
-function DeparturesList({departures, total, onLoadMore}) {
-    console.log('HEY!')
+function DeparturesList({departures = [], total = '', onLoadMore = ()=>{}}) {
     return (
-        <>  
-            <div>Total Flights: {total}</div>
-            <ul onScroll={e => handleScroll(e, onLoadMore)} style={{border: '2px solid red', maxHeight: '250px', overflow: 'scroll'}}>
-                {departures.map((dep) => {
-                    return(
-                    <li key={dep.id}>
-                        id: {dep.id} ||
-                        from: {dep.launchSite.planet.name} - {dep.launchSite.name} || 
-                        to: {dep.landingSite.planet.name} - {dep.landingSite.name} || 
-                        when: {dep.departureAt}
-                    </li>
-                    )
-                })}
-            </ul>
-        </>
+        <StyledDeparturesList>  
+            <div className="num-flights">Number of flights: <span style={{minHeight: '20px'}}>{total}</span></div>
+            <h3>DEPARTURES</h3>
+            <div className="list-container">
+                <ul onScroll={e => handleScroll(e, onLoadMore)} style={{overflow: 'scroll'}}>
+                    {departures.map((dep) => {
+                        return(
+                        <li key={dep.id} className={dep.id ? '' : '-add-blur'}>
+                            <img src={'/images/planet-loader.svg'}/>
+                            <div className="departure-container">
+                                <div className="departure-container__where">To: Planet {dep.landingSite.planet.name}</div>
+                                <div className="departure-container__when">{dep.departureAt}</div>
+                            </div>
+                        </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </StyledDeparturesList>
     );
 }
 

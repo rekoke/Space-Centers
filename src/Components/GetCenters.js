@@ -5,15 +5,16 @@ import CenterDescription from './ CenterDescription';
 function GetCenters() {
 
     const [spaceCenterId, setSpaceCenterId] = useState(null);
+    const [drawerOpen, setDrawerOpen] = useState(false);
     const showSpaceCenter = id => {
+        setDrawerOpen(id ? true : false);
         setSpaceCenterId(id);
     }
 
-    console.log('renders getcenters')
     return (
         <>
             <CentersList showSpaceCenter={showSpaceCenter}/>
-            { spaceCenterId && <CenterDescription spaceCenterId={spaceCenterId} /> }
+            <CenterDescription spaceCenterId={spaceCenterId} drawerOpen={drawerOpen} showSpaceCenter={showSpaceCenter}/>
         </>
     )
 }

@@ -3,6 +3,7 @@ import {LOAD_CENTERS} from "../GraphQL/Queries"
 import {useQuery} from "@apollo/client"
 import Centers from "./Centers";
 import ReactPaginate from "react-paginate";
+import { StyledPager } from "./styles/Pager.styled";
 
 const PER_PAGE = 9;
 
@@ -25,23 +26,24 @@ const CentersList = ({ showSpaceCenter }) => {
     if(error) return <span style='color: red'> {error}</span>
     return (
         <>
-            { loading ? 'Loading...' :  
-                <Centers 
-                    centers={data?.spaceCenters.nodes}
-                    showSpaceCenter={showSpaceCenter}
-                /> 
-            }
-            { pageCount && <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={handlePageClick}
-                containerClassName={"gridWrapper__pagination"}
-                previousLinkClassName={"pagination__link"}
-                nextLinkClassName={"pagination__link"}
-                disabledClassName={"pagination__link--disabled"}
-                activeClassName={"pagination__link--active"}
-            />
+            <Centers 
+                centers={data?.spaceCenters.nodes}
+                showSpaceCenter={showSpaceCenter}
+            /> 
+            { pageCount && 
+            <StyledPager>
+                <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName={"gridWrapper__pagination"}
+                    previousLinkClassName={"pagination__link"}
+                    nextLinkClassName={"pagination__link"}
+                    disabledClassName={"pagination__link--disabled"}
+                    activeClassName={"pagination__link--active"}
+                />
+            </StyledPager>
             }
         </>
     )
