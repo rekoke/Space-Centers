@@ -3,8 +3,8 @@ import {  ApolloProvider } from "@apollo/client";
 import GetCenters from "./Components/GetCenters";
 import { client } from "./GraphQL/Settings";
 import styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from "./Components/GlobalStyles";
-import { COLORS, SHADOW } from './Components/ThemeConstants';
+import GlobalStyles from "./Components/styles/GlobalStyles";
+import { COLORS, SHADOW } from './Components/styles/ThemeConstants';
 
 const AppContainer = styled.div`
     margin: 0 auto;

@@ -9,7 +9,7 @@ const Centers = ({centers = [], showSpaceCenter}) => {
                     return(
                         <li key={center.id} onClick={() => {showSpaceCenter(center.id)}}>
                             {/* Adding random image, could match with planets */}
-                            <img src={`/images/planet-${index + 1}.svg`}/>
+                            <img alt="planet" src={`/images/planet-${index + 1}.svg`}/>
                             <h3>{center.name}</h3>
                         </li>
                     )

@@ -9,7 +9,7 @@ import {
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
     if(graphqlErrors){
-      graphqlErrors.map(({message, location, path}) => {
+      graphqlErrors.forEach(({message, location, path}) => {
         alert(`Graphql error ${message}`);
       })
     }

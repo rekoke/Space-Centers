@@ -17,7 +17,7 @@ function DeparturesList({departures = [], total = '', onLoadMore = ()=>{}}) {
                     {departures.map((dep) => {
                         return(
                         <li key={dep.id} className={dep.id ? '' : '-add-blur'}>
-                            <img src={'/images/planet-loader.svg'}/>
+                            <img alt="planet_placeholder" src={'/images/planet-loader.svg'}/>
                             <div className="departure-container">
                                 <div className="departure-container__where">To: Planet {dep.landingSite.planet.name}</div>
                                 <div className="departure-container__when">{dep.departureAt}</div>

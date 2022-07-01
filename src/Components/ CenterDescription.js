@@ -8,8 +8,8 @@ import LoadingEllipsis from "./LoadingEllipsis";
 const  CenterDescription = ({spaceCenterId, drawerOpen, showSpaceCenter}) => {
     const [center, setCenter] = useState({});
     // The useLazyQuery hook is perfect for executing queries in response to events besides component rendering.
-    const [getCenter, {loading, error, data}] = useLazyQuery(FIND_CENTER);
-
+    const [getCenter, {loading, data}] = useLazyQuery(FIND_CENTER);
+    
     useEffect(() => {
         if(spaceCenterId){
             getCenter({variables: {id: spaceCenterId}})
@@ -17,10 +17,9 @@ const  CenterDescription = ({spaceCenterId, drawerOpen, showSpaceCenter}) => {
         } else {
             setCenter({})
         }
-    }, [spaceCenterId, data])
+    }, [spaceCenterId, data, getCenter])
 
 
-    if(error) return <span style='color: red'>{error}</span>
     return (
         <StyledCenterDescription drawerOpen={drawerOpen}>
             {loading ? <LoadingEllipsis /> : 

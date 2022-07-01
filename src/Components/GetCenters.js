@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import CentersList from "./CentersList";
 import CenterDescription from './ CenterDescription';
 
