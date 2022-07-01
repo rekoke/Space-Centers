@@ -20,7 +20,7 @@ This was my first time using graphql and styled-components. It's been fun and I 
 
 ### Back-end
 
-In order to start the containers, run the following in a terminal:
+In order to start the containers start docker desktopp and run the following in a terminal, from the project directory:
 
 ```sh
 $ docker-compose up -d
@@ -31,7 +31,7 @@ $ docker-compose up -d
 In order to install the modules and start the project, run the following in the project directory:
 
 ```sh
-$ npm install
+$ npm installd
 ```
 
 ```sh
