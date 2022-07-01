@@ -4,7 +4,7 @@ export const StyledDeparturesList = styled.div`
     flex: 1 1;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: hidden;
     .num-flights{
         display: flex;
         flex-direction: column;
@@ -22,6 +22,10 @@ export const StyledDeparturesList = styled.div`
     .list-container{
         flex: 1 1;
         overflow: scroll;
+        ul{
+            overflow: scroll;
+            height: 100%;
+        }
         li{
             display: flex;
             margin-bottom: 15px;
