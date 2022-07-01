@@ -8,6 +8,7 @@ Everything was pretty clear to me, unless the optional 'friendships' task, I cou
 
 This was my first time using graphql and styled-components. It's been fun and I learnt a lot thanks to this app. I took a lot of care trying to replicate the given design but I didn't have time (I have some family stuff going on) to make it responsive and to write the tests. I am aware that I could have done more but the time for me was limited.
 
+I added pagination to the space centers and to the flights list. 
 
 ## Libraries used
 
