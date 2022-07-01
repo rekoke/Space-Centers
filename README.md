@@ -32,7 +32,7 @@ $ docker-compose up -d
 In order to install the modules and start the project, run the following in the project directory:
 
 ```sh
-$ npm installd
+$ npm install
 ```
 
 ```sh
